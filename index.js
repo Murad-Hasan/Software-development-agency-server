@@ -63,7 +63,7 @@ client.connect((err) => {
     })
   })
   //post add order
-  app.post("addOrder", (req, res) => {
+  app.post("/addOrder", (req, res) => {
     const newOrder = req.body;
     ordersCollection.insertOne(newOrder)
     .then(result => {
@@ -72,7 +72,7 @@ client.connect((err) => {
   })
   //get specific order list
 
-  app.get("showOrder", (req, res) => {
+  app.get("/showOrder", (req, res) => {
     ordersCollection.find({email: req.params.email})
     .toArray((err, order) => {
       res.send(order)
@@ -80,7 +80,7 @@ client.connect((err) => {
   })
 
   //get all order
-  app.get("allOrder", (req, res) => {
+  app.get("/allOrder", (req, res) => {
     ordersCollection.find({})
     .toArray((err, orderList) => {
       res.send(orderList)
