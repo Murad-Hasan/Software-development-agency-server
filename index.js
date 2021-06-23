@@ -112,7 +112,7 @@ app.post("/isAdmin", (req, res) => {
 });
 
 app.delete("/delete/:id", (req, res) => {
-  ordersCollection.findOneAndDelete({ _id: ObjectId(req.params.id) })
+  serviceCollection.findOneAndDelete({ _id: ObjectId(req.params.id) })
     .then((result) => {
       res.send(result.deletedCount > 0);
     });
