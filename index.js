@@ -73,7 +73,7 @@ client.connect((err) => {
   //get specific order list
 
   app.get("/showOrder", (req, res) => {
-    ordersCollection.find({email: req.params.email})
+    ordersCollection.find({email: req.query.email})
     .toArray((err, order) => {
       res.send(order)
     })
